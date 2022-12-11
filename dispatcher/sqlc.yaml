@@ -1,0 +1,13 @@
+version: "2"
+sql:
+  - schema: "db/migrations"
+    queries: "db/queries"
+    engine: "mysql"
+    gen:
+      go:
+        package: "db"
+        out: "internal/infra/db"
+        emit_json_tags: true
+        overrides:
+          - db_type: "decimal"
+            go_type: "float64"
